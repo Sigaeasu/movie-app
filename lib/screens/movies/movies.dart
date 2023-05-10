@@ -1,7 +1,8 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:movieapp/screens/movies/sections/balanceSection.dart';
+import 'package:movieapp/screens/movies/sections/categorySection.dart';
 import 'package:movieapp/screens/movies/sections/movieSliderSection.dart';
+import 'package:movieapp/screens/movies/sections/nowPlayingSection.dart';
 
 class MoviesPage extends StatefulWidget {
   const MoviesPage({super.key});
@@ -23,18 +24,19 @@ class _MoviesPageState extends State<MoviesPage> {
         child: Column(mainAxisSize: MainAxisSize.max, children: [
           ImageSliderSection(),
           BalanceSection(),
-          SizedBox(
-            height: 200.0,
-            child: ListView.builder(
-              physics: ClampingScrollPhysics(),
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: 15,
-              itemBuilder: (BuildContext context, int index) => const Card(
-                child: Center(child: Text('Dummy Card Text')),
-              ),
-            ),
-          ),
+          Container(
+              alignment: Alignment.centerLeft,
+              margin: EdgeInsets.only(left: 20, bottom: 10, top: 20),
+              child: Text('Category',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
+          CategorySection(),
+          Container(
+              alignment: Alignment.centerLeft,
+              margin: EdgeInsets.only(left: 20, bottom: 10, top: 20),
+              child: Text('Now Playing',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
+          NowPlayingSection(),
+          SizedBox(height: 20),
         ]),
       ),
     );
