@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movieapp/screens/screens.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -10,13 +11,32 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  int activeIndex = 0;
+
+  final pages = <Widget>[
+    MoviesPage(),
+    FavoritesPage(),
+    ProfilePage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Movie App"),
+      body: pages[activeIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: activeIndex,
+        onTap: ((value) => {
+              setState(() {
+                activeIndex = value;
+              })
+            }),
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.movie), label: 'Movies'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite), label: 'Favorites'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+        ],
       ),
-      body: Text('Movie App'),
     );
   }
 }
