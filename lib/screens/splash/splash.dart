@@ -30,7 +30,22 @@ class SplashView extends StatelessWidget {
           return LoginPage();
         }
 
-        return const Scaffold();
+        return Scaffold(
+          body: Center(
+              child: Container(
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Icon(Icons.movie, color: Colors.blue[300], size: 150),
+              Text(
+                'MovieApp',
+                style: TextStyle(
+                  fontSize: 40,
+                  color: Colors.blue[300],
+                ),
+              )
+            ]),
+          )),
+        );
       },
     );
   }
