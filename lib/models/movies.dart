@@ -3,7 +3,7 @@ import 'package:movieapp/models/genres.dart';
 import 'package:movieapp/utils/utils.dart';
 
 // ignore: must_be_immutable
-class TVMovies extends Equatable {
+class Movies extends Equatable {
   final String id;
   final String title;
   final String overview;
@@ -16,7 +16,7 @@ class TVMovies extends Equatable {
   final int runTime;
   final List<Genres> genres;
 
-  const TVMovies({
+  const Movies({
     required this.id,
     required this.title,
     required this.overview,
@@ -61,8 +61,8 @@ class TVMovies extends Equatable {
     };
   }
 
-  factory TVMovies.fromMovieJson(Map<String, dynamic> map) {
-    return TVMovies(
+  factory Movies.fromMovieJson(Map<String, dynamic> map) {
+    return Movies(
       id: StringParser.parse(map['id'] ?? ''),
       title: StringParser.parse(map['title'] ?? ''),
       overview: StringParser.parse(map['overview'] ?? ''),
@@ -79,8 +79,8 @@ class TVMovies extends Equatable {
     );
   }
 
-  factory TVMovies.fromTVJson(Map<String, dynamic> map) {
-    return TVMovies(
+  factory Movies.fromTVJson(Map<String, dynamic> map) {
+    return Movies(
       id: StringParser.parse(map['id'] ?? ''),
       title: StringParser.parse(map['name'] ?? ''),
       overview: StringParser.parse(map['overview'] ?? ''),

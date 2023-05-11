@@ -5,8 +5,8 @@ class MoviesState extends Equatable {
   final MoviesParams params;
   final MoviesBlocStatus status;
   final ErrorException? failure;
-  final List<TVMovies> listData;
-  final TVMovies? detailData;
+  final List<Movies> listData;
+  final Movies? detailData;
   const MoviesState({
     this.params = const MoviesParams(),
     this.status = MoviesBlocStatus.loading,
@@ -22,8 +22,8 @@ class MoviesState extends Equatable {
     MoviesParams? params,
     MoviesBlocStatus? status,
     ErrorException? failure,
-    List<TVMovies>? listData,
-    TVMovies? detailData,
+    List<Movies>? listData,
+    Movies? detailData,
   }) {
     return MoviesState(
       params: params ?? this.params,

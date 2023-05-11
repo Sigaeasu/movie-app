@@ -44,9 +44,20 @@ class _CategorySectionState extends State<CategorySection> {
             itemCount: 5,
             itemBuilder: (BuildContext context, int index) => Card(
                   child: Container(
-                      width: 100,
-                      padding: EdgeInsets.all(10),
-                      child: Center(child: Text(genre[index]['name']))),
+                    width: 100,
+                    padding: EdgeInsets.all(10),
+                    child: Center(
+                        child: Text(
+                      genre[index]['name'],
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.white),
+                    )),
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: Alignment.topRight,
+                            end: Alignment.bottomLeft,
+                            colors: [Colors.purple.shade300, Colors.blue])),
+                  ),
                 )),
       ),
     );

@@ -4,11 +4,11 @@ import 'package:movieapp/models/models.dart';
 import 'package:movieapp/utils/utils.dart';
 
 abstract class MoviesService {
-  Future<List<TVMovies>> getMovies({
+  Future<List<Movies>> getMovies({
     required int page,
     required String sort,
   });
-  Future<TVMovies> getMovieDetail(String id);
+  Future<Movies> getMovieDetail(String id);
 }
 
 class MoviesServiceImpl
@@ -20,7 +20,7 @@ class MoviesServiceImpl
   });
 
   @override
-  Future<List<TVMovies>> getMovies({
+  Future<List<Movies>> getMovies({
     required int page,
     required String sort,
   }) async {
@@ -28,27 +28,27 @@ class MoviesServiceImpl
     url += sort.toString();
     url += '?page=' + page.toString();
 
-    return get<List<TVMovies>>(
+    return get<List<Movies>>(
       url,
       httpClient: httpClient,
       options: Options(headers: {'appVersion': '2'}),
       onSuccess: (response) async {
         return ((response.data['results'] ?? []) as List)
-            .map((e) => TVMovies.fromMovieJson(e))
+            .map((e) => Movies.fromMovieJson(e))
             .toList();
       },
     );
   }
 
   @override
-  Future<TVMovies> getMovieDetail(String id) async {
+  Future<Movies> getMovieDetail(String id) async {
     String url = "/3/movie/" + id;
-    return get<TVMovies>(
+    return get<Movies>(
       url,
       httpClient: httpClient,
       options: Options(headers: {'appVersion': '2'}),
       onSuccess: (response) async {
-        return TVMovies.fromMovieJson(response.data);
+        return Movies.fromMovieJson(response.data);
       },
     );
   }

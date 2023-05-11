@@ -172,7 +172,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
     }
   }
 
-  Future<List<TVMovies>> onFetchListDataUnHandleError({
+  Future<List<Movies>> onFetchListDataUnHandleError({
     required MoviesParams params,
     required Emitter<MoviesState> emit,
   }) async {
@@ -183,7 +183,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
     return result;
   }
 
-  Future<TVMovies> onFetchDetailDataUnHandleError({
+  Future<Movies> onFetchDetailDataUnHandleError({
     required MoviesParams params,
     required Emitter<MoviesState> emit,
   }) async {

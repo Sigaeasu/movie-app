@@ -56,25 +56,31 @@ class _MoviesPageState extends State<MoviesPage> {
                   },
                   child: SingleChildScrollView(
                     child: Column(mainAxisSize: MainAxisSize.max, children: [
-                      ImageSliderSection(),
-                      BalanceSection(),
-                      Container(
-                          alignment: Alignment.centerLeft,
-                          margin:
-                              EdgeInsets.only(left: 20, bottom: 10, top: 20),
-                          child: Text('Category',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold))),
-                      CategorySection(),
-                      Container(
-                          alignment: Alignment.centerLeft,
-                          margin:
-                              EdgeInsets.only(left: 20, bottom: 10, top: 20),
-                          child: Text('Now Playing',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold))),
-                      NowPlayingSection(),
-                      SizedBox(height: 20),
+                      if (state.status == MoviesBlocStatus.success) ...[
+                        ImageSliderSection(movies: state.listData),
+                        BalanceSection(),
+                        Container(
+                            alignment: Alignment.centerLeft,
+                            margin:
+                                EdgeInsets.only(left: 20, bottom: 10, top: 20),
+                            child: Text('Category',
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold))),
+                        CategorySection(),
+                        Container(
+                            alignment: Alignment.centerLeft,
+                            margin:
+                                EdgeInsets.only(left: 20, bottom: 10, top: 20),
+                            child: Text('Now Playing',
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold))),
+                        NowPlayingSection(
+                          movies: state.listData,
+                        ),
+                        SizedBox(height: 20),
+                      ],
                     ]),
                   ),
                 );
