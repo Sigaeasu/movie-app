@@ -1,16 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
+import 'package:movieapp/blocs/blocs.dart';
 import 'package:movieapp/components/components.dart';
+import 'package:movieapp/screens/login/sections/form_section.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   static const routeName = '/login';
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => GetIt.I<LoginCubit>(),
+      child: LoginView(),
+    );
+  }
 }
 
-class _LoginPageState extends State<LoginPage> {
+class LoginView extends StatefulWidget {
+  LoginView({Key? key}) : super(key: key);
+
+  @override
+  _LoginViewState createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,38 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                     letterSpacing: 0.4,
                     fontSize: 28)),
             SizedBox(height: 100),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const RegularInput(
-                  key: Key('email_input_login'),
-                  inputType: TextInputType.emailAddress,
-                  label: 'Email',
-                ),
-                const SizedBox(height: 20),
-                PasswordInput(
-                  key: const Key('password_input_login'),
-                  label: 'Password',
-                ),
-                const SizedBox(height: 50),
-                ElevatedButton(
-                  key: const Key('submit_login_button'),
-                  onPressed: () => {},
-                  child: Text(
-                    'Login',
-                  ),
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: Size(300, 48), backgroundColor: Colors.blue),
-                ),
-                const SizedBox(height: 30),
-                InkWell(
-                  onTap: () {
-                    print('register');
-                  },
-                  child: Center(child: Text('Register')),
-                )
-              ],
-            )
+            FormSection()
           ],
         )
       ],

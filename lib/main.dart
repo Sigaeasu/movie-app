@@ -8,6 +8,7 @@ import 'package:movieapp/blocs/blocs.dart';
 import 'package:movieapp/env/locator.dart';
 import 'package:movieapp/env/route.dart';
 import 'package:movieapp/screens/screens.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 final globalNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -44,13 +45,13 @@ class MyAppView extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       localizationsDelegates: [
+        AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
-        Locale('en'),
-      ],
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale('en'),
       initialRoute: SplashPage.routeName,
       navigatorKey: globalNavigatorKey,
       routes: appRoutes,

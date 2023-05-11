@@ -53,6 +53,7 @@ Future<void> setUpLocator() async {
   // --------------------------- STATE MANAGEMENT ------------------------------
 
   getIt.registerFactory(() => AuthCubit(service: getIt()));
+  getIt.registerFactory(() => LoginCubit(service: getIt()));
 
   // --------------------------- END STATE MANAGEMENT ------------------------------
 
