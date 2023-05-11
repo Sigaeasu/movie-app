@@ -5,3 +5,4 @@ export 'profile/profile.dart';
 export 'splash/splash.dart';
 export 'login/login.dart';
 export 'movie_list/movie_list.dart';
+export 'movie_detail/movie_detail.dart';

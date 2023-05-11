@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:movieapp/blocs/blocs.dart';
 import 'package:movieapp/components/components.dart';
+import 'package:movieapp/screens/screens.dart';
 import 'package:very_good_infinite_list/very_good_infinite_list.dart';
 
 class MovieListPage extends StatefulWidget {
@@ -58,7 +59,13 @@ class _MovieListPageState extends State<MovieListPage> {
                         itemBuilder: (context, index) {
                           return MovieCard(
                             movie: state.listData[index],
-                            onTap: () => {},
+                            onTap: () => Navigator.of(context).pushNamed(
+                              MovieDetailPage.routeName,
+                              arguments: MovieDetailArgument(
+                                  id: state.listData[index].id,
+                                  name: state.listData[index].title,
+                                  recommendations: state.listData),
+                            ),
                           );
                         }));
               },
