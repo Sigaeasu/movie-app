@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:movieapp/blocs/blocs.dart';
+import 'package:movieapp/components/components.dart';
 import 'package:movieapp/screens/movies/sections/balanceSection.dart';
 import 'package:movieapp/screens/movies/sections/categorySection.dart';
 import 'package:movieapp/screens/movies/sections/movieSliderSection.dart';
@@ -57,6 +58,29 @@ class _MoviesPageState extends State<MoviesPage> {
                   child: SingleChildScrollView(
                     child: Column(mainAxisSize: MainAxisSize.max, children: [
                       if (state.status == MoviesBlocStatus.success) ...[
+                        Padding(
+                          padding: EdgeInsets.all(20),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Search',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 20),
+                              suffixIcon: Icon(Icons.search),
+                            ),
+                          ),
+                        ),
                         ImageSliderSection(movies: state.listData),
                         BalanceSection(),
                         Container(
@@ -69,13 +93,16 @@ class _MoviesPageState extends State<MoviesPage> {
                                     fontWeight: FontWeight.bold))),
                         CategorySection(),
                         Container(
-                            alignment: Alignment.centerLeft,
-                            margin:
-                                EdgeInsets.only(left: 20, bottom: 10, top: 20),
-                            child: Text('Now Playing',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold))),
+                          margin: EdgeInsets.only(
+                              left: 20, bottom: 10, top: 20, right: 20),
+                          child: RowContainer(
+                              leftWidget: Text('Now Playing',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold)),
+                              rightWidget: ElevatedButton(
+                                  onPressed: () {}, child: Text('See All'))),
+                        ),
                         NowPlayingSection(
                           movies: state.listData,
                         ),
