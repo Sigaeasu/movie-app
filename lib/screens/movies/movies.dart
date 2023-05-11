@@ -7,6 +7,7 @@ import 'package:movieapp/screens/movies/sections/balanceSection.dart';
 import 'package:movieapp/screens/movies/sections/categorySection.dart';
 import 'package:movieapp/screens/movies/sections/movieSliderSection.dart';
 import 'package:movieapp/screens/movies/sections/nowPlayingSection.dart';
+import 'package:movieapp/screens/screens.dart';
 
 class MoviesPage extends StatefulWidget {
   const MoviesPage({Key? key}) : super(key: key);
@@ -58,29 +59,7 @@ class _MoviesPageState extends State<MoviesPage> {
                   child: SingleChildScrollView(
                     child: Column(mainAxisSize: MainAxisSize.max, children: [
                       if (state.status == MoviesBlocStatus.success) ...[
-                        Padding(
-                          padding: EdgeInsets.all(20),
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Search',
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(
-                                  color: Colors.grey,
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(
-                                  color: Colors.grey,
-                                ),
-                              ),
-                              contentPadding: EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 20),
-                              suffixIcon: Icon(Icons.search),
-                            ),
-                          ),
-                        ),
+                        SearchInput(),
                         ImageSliderSection(movies: state.listData),
                         BalanceSection(),
                         Container(
@@ -101,7 +80,11 @@ class _MoviesPageState extends State<MoviesPage> {
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold)),
                               rightWidget: ElevatedButton(
-                                  onPressed: () {}, child: Text('See All'))),
+                                  onPressed: () {
+                                    Navigator.of(context)
+                                        .pushNamed(MovieListPage.routeName);
+                                  },
+                                  child: Text('See All'))),
                         ),
                         NowPlayingSection(
                           movies: state.listData,
