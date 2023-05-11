@@ -1,0 +1,30 @@
+{
+    "helloWorld": "Hai Dunia!",
+    "@helloWorld": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "btnStart": "Mulai",
+    "btnChangeLanguage":"Ganti bahasa",
+
+    "@@locale": "id",
+    "counterAppBarTitle": "Perhitungan",
+    "@counterAppBarTitle": {
+        "description": "Teks ditampilkan di AppBar dari Halaman Penghitung"
+    },
+    "pageNotFoundMessage": "Maaf, halaman tidak tersedia.",
+    "backToHomeLabel": "Kembali Ke Home",
+    "settings": "Pengaturan",
+    "language": "Bahasa",
+    "theme": "Tema",
+    "home": "Home",
+    "email": "Email",
+    "password": "Password",
+    "login": "Masuk",
+    "loginTitle": "Masuk menggunakan email",
+    "forgotPasswordQuestion": "Lupa Password?",
+    "inputFieldHint": "Masukkan {field}",
+    "invalidInputCannotEmpty": "{type} tidak boleh kosong",
+    "invalidInput": "{type} tidak valid",
+    "invalidInputMustLength": "{type} harus berisi {length} karakter atau lebih",
+    "pleaseWait": "Tunggu Sebentar"
+}

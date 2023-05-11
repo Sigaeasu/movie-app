@@ -1,0 +1,61 @@
+{
+    "helloWorld": "Hello World!",
+    "@helloWorld": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "btnStart": "Start",
+    "btnChangeLanguage":"Change language",
+
+    "@@locale": "en",
+    "counterAppBarTitle": "Counter",
+    "@counterAppBarTitle": {
+        "description": "Text shown in the AppBar of the Counter Page"
+    },
+    "pageNotFoundMessage": "Sorry, this page isn't available.",
+    "backToHomeLabel": "Back To Home",
+    "settings": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "home": "Home",
+    "email": "Email",
+    "password": "Password",
+    "login": "Masuk",
+    "loginTitle": "Masuk menggunakan email",
+    "forgotPasswordQuestion": "Forgot the Password?",
+    "inputFieldHint": "Enter {field}",
+    "@inputFieldHint": {
+        "placeholders": {
+            "field": {
+                "type": "String"
+            }
+        }
+    },
+    "invalidInputCannotEmpty": "{type} cannot be empty",
+    "@invalidInputCannotEmpty": {
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
+    },
+    "invalidInput": "{type} is invalid",
+    "@invalidInput": {
+        "placeholders": {
+            "type": {
+                "type": "String"
+            }
+        }
+    },
+    "invalidInputMustLength": "{type} must contain {length} characters or more",
+    "@invalidInputMustLength": {
+        "placeholders": {
+            "type": {
+                "type": "String"
+            },
+            "length": {
+                "type": "String"
+            }
+        }
+    },
+    "pleaseWait": "Please Wait"
+}
