@@ -48,6 +48,12 @@ Future<void> setUpLocator() async {
     ),
   );
 
+  getIt.registerLazySingleton<MoviesService>(
+    () => MoviesServiceImpl(
+      httpClient: getIt(),
+    ),
+  );
+
   // -------------------------------- END SERVICE ----------------------------------
 
   // --------------------------- STATE MANAGEMENT ------------------------------
