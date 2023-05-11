@@ -6,8 +6,16 @@ import 'package:movieapp/l10n/l10n.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 
-class FormSection extends StatelessWidget {
+class FormSection extends StatefulWidget {
   const FormSection({Key? key}) : super(key: key);
+  static const routeName = '/mitra';
+
+  @override
+  FormSectionView createState() => FormSectionView();
+}
+
+class FormSectionView extends State<FormSection> {
+  bool accountExists = true;
 
   @override
   Widget build(BuildContext context) {
@@ -49,17 +57,21 @@ class FormSection extends StatelessWidget {
             ElevatedButton(
               key: const Key('submit_login_button'),
               onPressed: () => _onLoginSubmitted(context, state),
-              child: Text('Login'),
+              child: Text(accountExists ? 'Login' : 'Register'),
               style: ElevatedButton.styleFrom(
                   minimumSize: Size(300, 48), backgroundColor: Colors.blue),
             ),
-            const SizedBox(height: 30),
-            InkWell(
-              onTap: () {
-                print('register');
-              },
-              child: Center(child: Text('Register')),
-            )
+            if (accountExists) ...[
+              const SizedBox(height: 30),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    accountExists = false;
+                  });
+                },
+                child: Center(child: Text('Register')),
+              )
+            ],
           ],
         );
       },

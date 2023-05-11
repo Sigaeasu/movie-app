@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movieapp/blocs/blocs.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -18,7 +20,13 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: AppBar(
         title: Text("Profile"),
       ),
-      body: Text('Profile'),
+      body: ElevatedButton(
+        key: const Key('submit_login_button'),
+        onPressed: () => context.read<AuthCubit>().logout(),
+        child: Text('Logout'),
+        style: ElevatedButton.styleFrom(
+            minimumSize: Size(300, 48), backgroundColor: Colors.blue),
+      ),
     );
   }
 }
