@@ -59,7 +59,8 @@ class _LoginViewState extends State<LoginView> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             letterSpacing: 0.4,
-                            fontSize: 28)),
+                            fontSize: 28,
+                            color: Colors.blue.shade500,)),
                     SizedBox(height: 100),
                     FormSection()
                   ],
