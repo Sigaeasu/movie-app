@@ -48,20 +48,21 @@ class _LoginViewState extends State<LoginView> {
             child: ListView(
               physics: const BouncingScrollPhysics(),
               padding: const EdgeInsets.symmetric(
-                vertical: 100,
+                vertical: 70,
                 horizontal: 32,
               ),
               children: [
                 Column(
                   children: [
-                    SizedBox(height: 8),
+                    Icon(Icons.movie, color: Colors.blue[500], size: 150),
                     Text('MovieApp',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 0.4,
-                            fontSize: 28,
-                            color: Colors.blue.shade500,)),
-                    SizedBox(height: 100),
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 0.4,
+                          fontSize: 28,
+                          color: Colors.blue.shade500,
+                        )),
+                    SizedBox(height: 50),
                     FormSection()
                   ],
                 )
