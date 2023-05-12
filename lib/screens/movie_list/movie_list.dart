@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:movieapp/blocs/blocs.dart';
 import 'package:movieapp/components/components.dart';
+import 'package:movieapp/components/skeletons/movie_list_skeleton.dart';
 import 'package:movieapp/screens/screens.dart';
 import 'package:very_good_infinite_list/very_good_infinite_list.dart';
 
@@ -42,32 +43,38 @@ class _MovieListPageState extends State<MovieListPage> {
         create: (context) => moviesBloc,
         child: Scaffold(
             appBar: AppBar(
-              title: const Text("Movies"),
+              title: const Text("Now Playing List"),
             ),
             body: BlocListener<MoviesBloc, MoviesState>(
                 listener: (context, state) {
               //
             }, child: BlocBuilder<MoviesBloc, MoviesState>(
               builder: (context, state) {
-                return RefreshIndicator(
-                    onRefresh: () async {
-                      onRefreshData();
-                    },
-                    child: InfiniteList(
-                        itemCount: state.listData.length,
-                        onFetchData: () {},
-                        itemBuilder: (context, index) {
-                          return MovieCard(
-                            movie: state.listData[index],
-                            onTap: () => Navigator.of(context).pushNamed(
-                              MovieDetailPage.routeName,
-                              arguments: MovieDetailArgument(
-                                  id: state.listData[index].id,
-                                  name: state.listData[index].title,
-                                  recommendations: state.listData),
-                            ),
-                          );
-                        }));
+                if (state.status == MoviesBlocStatus.success) {
+                  return RefreshIndicator(
+                      onRefresh: () async {
+                        onRefreshData();
+                      },
+                      child: InfiniteList(
+                          itemCount: state.listData.length,
+                          onFetchData: () {},
+                          itemBuilder: (context, index) {
+                            return MovieCard(
+                              movie: state.listData[index],
+                              onTap: () => Navigator.of(context).pushNamed(
+                                MovieDetailPage.routeName,
+                                arguments: MovieDetailArgument(
+                                    id: state.listData[index].id,
+                                    name: state.listData[index].title,
+                                    recommendations: state.listData),
+                              ),
+                            );
+                          }));
+                } else if (state.status == MoviesBlocStatus.loading) {
+                  return MoviesListSkeleton();
+                } else {
+                  return Container();
+                }
               },
             ))));
   }

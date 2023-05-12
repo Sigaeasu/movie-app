@@ -58,8 +58,8 @@ class _MoviesPageState extends State<MoviesPage> {
                   },
                   child: SingleChildScrollView(
                     child: Column(mainAxisSize: MainAxisSize.max, children: [
+                      SearchInput(),
                       if (state.status == MoviesBlocStatus.success) ...[
-                        SearchInput(),
                         ImageSliderSection(movies: state.listData),
                         BalanceSection(),
                         Container(
@@ -90,6 +90,9 @@ class _MoviesPageState extends State<MoviesPage> {
                           movies: state.listData,
                         ),
                         SizedBox(height: 20),
+                      ],
+                      if (state.status == MoviesBlocStatus.loading) ...[
+                        MoviesSkeleton()
                       ],
                     ]),
                   ),
