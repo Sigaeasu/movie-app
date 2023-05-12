@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 
-class FavoritesPage extends StatefulWidget {
-  const FavoritesPage({super.key});
+class TransactionsPage extends StatefulWidget {
+  const TransactionsPage({super.key});
 
   static const routeName = '/favorites';
 
   @override
-  State<FavoritesPage> createState() => _FavoritesPageState();
+  State<TransactionsPage> createState() => _TransactionsPageState();
 }
 
-class _FavoritesPageState extends State<FavoritesPage>
+class _TransactionsPageState extends State<TransactionsPage>
     with SingleTickerProviderStateMixin {
   TabController? _tabController;
 

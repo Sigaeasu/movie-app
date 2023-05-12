@@ -8,6 +8,6 @@ final appRoutes = <String, WidgetBuilder>{
   MoviesPage.routeName: (context) => MoviesPage(),
   MovieListPage.routeName: (context) => MovieListPage(),
   MovieDetailPage.routeName: (context) => MovieDetailPage(),
-  FavoritesPage.routeName: (context) => FavoritesPage(),
+  TransactionsPage.routeName: (context) => TransactionsPage(),
   ProfilePage.routeName: (context) => ProfilePage(),
 };

@@ -15,7 +15,7 @@ class _MainPageState extends State<MainPage> {
 
   final pages = <Widget>[
     MoviesPage(),
-    FavoritesPage(),
+    TransactionsPage(),
     ProfilePage(),
   ];
 
